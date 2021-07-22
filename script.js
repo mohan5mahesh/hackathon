@@ -3,6 +3,7 @@ async function getusers() {
     const data = await fetch("https://api.nationalize.io/?name=michael");
     const users = await data.json();
     // console.log(users);
+
     const res = await search_user(users);
   } catch {
     console.log("error");
@@ -10,9 +11,9 @@ async function getusers() {
 }
 
 function search_user(users) {
-  const inputname = users.name;
-
-  if (inputname) {
+  const input = users.name;
+  document.querySelector(".name").value = input;
+  if (input) {
     users.country.forEach((data) => {
       const c = document.createElement("ul");
       c.innerHTML = `
@@ -22,5 +23,4 @@ function search_user(users) {
     });
   }
 }
-
 getusers();
