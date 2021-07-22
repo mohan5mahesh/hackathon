@@ -23,3 +23,4 @@ function search_user(users) {
   }
 }
 
+getusers();
