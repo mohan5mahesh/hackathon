@@ -22,9 +22,11 @@ function search_user(users) {
     });
   }
 }
-
+function input_data(){
 const filter = document.createElement("div");
 filter.innerHTML = `<input type="text" placeholder="Enter Name" id="myText" />
 <button onclick="getusers()">Display Data</button>`;
 // let x = document.getElementById("mytext").value;
 document.body.append(filter);
+}
+input_data();
