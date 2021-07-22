@@ -10,18 +10,21 @@ async function getusers() {
 }
 
 function search_user(users) {
-  users.country.forEach((data) => {
-    const c = document.createElement("ul");
-    c.innerHTML = `
+  const inputname = users.name;
+
+  if (inputname) {
+    users.country.forEach((data) => {
+      const c = document.createElement("ul");
+      c.innerHTML = `
   <li><a>country:${data.country_id}</a></li>
  <li><a>Probability:${data.probability}</a></li>`;
-    document.body.append(c);
-  });
+      document.body.append(c);
+    });
+  }
 }
-getusers();
 
 const filter = document.createElement("div");
-filter.innerHTML = `<input type="text" placeholder="Enter Name" id="input" onkeyup="filter_user()"/>`;
+filter.innerHTML = `<input type="text" placeholder="Enter Name" id="myText" />
+<button onclick="getusers()">Display Data</button>`;
+// let x = document.getElementById("mytext").value;
 document.body.append(filter);
-
-
