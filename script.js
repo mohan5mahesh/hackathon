@@ -11,11 +11,17 @@ async function getusers() {
 
 function search_user(users) {
   users.country.forEach((data) => {
-    const c = document.createElement("div");
+    const c = document.createElement("ul");
     c.innerHTML = `
-   <h3>country:${data.country_id}</h3>
-   <p>Probability:${data.probability}</p>`;
+  <li><a>country:${data.country_id}</a></li>
+ <li><a>Probability:${data.probability}</a></li>`;
     document.body.append(c);
   });
 }
 getusers();
+
+const filter = document.createElement("div");
+filter.innerHTML = `<input type="text" placeholder="Enter Name" id="input" onkeyup="filter_user()"/>`;
+document.body.append(filter);
+
+
